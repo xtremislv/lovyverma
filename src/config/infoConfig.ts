@@ -4,9 +4,6 @@ export * from './education'
 export * from './career'
 export * from './activity'
 
-export const changelogIntro = ""
-export const changelogHeadLine = ""
-export const changelogList = [ ]
 
 // personal info
 export const name = 'Lovy Verma'
