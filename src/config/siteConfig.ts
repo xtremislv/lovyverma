@@ -28,6 +28,10 @@ export const footerItems: Array<NavItemType> = [
   {
     name: 'Friends',
     href: '/friends'
+  },
+  {
+    name: 'Changelog',
+    href: '/changelog'
   }
 ]
 
