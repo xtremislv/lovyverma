@@ -22,6 +22,9 @@ export const aboutParagraphs = [
 ]
 
 
+export const changelogHeadLine = "What's new about this site"
+export const changelogIntro = "Check out the latest changes to this site."
+
 // blog
 export const blogHeadLine = "What I've thinking about."
 export const blogIntro = "I've written something about AI, programming and life."
