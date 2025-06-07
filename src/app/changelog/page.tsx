@@ -1,6 +1,6 @@
 
 import { SimpleLayout } from '@/components/layout/SimpleLayout'
-import { changelogIntro, changelogHeadLine } from '@/config/infoConfig'
+import { changelogIntro, changelogHeadLine } from '@/config/Changelog'
 
 import ChangelogBlock from '@/components/changelog/Changelog'
 
