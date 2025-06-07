@@ -1,0 +1,94 @@
+---
+title: 'Omniglot-MetaLearn'
+description: 'Meta-learning approaches (Black-box and MAML) evaluated on the Omniglot dataset for few-shot image classification.'
+date: '2025-06-07'
+---
+
+# Omniglot-MetaLearn
+
+This project implements and evaluates two meta-learning approaches on the Omniglot dataset for few-shot image classification:
+1. **Black-box Meta-Learning (BBML)**
+2. **Model-Agnostic Meta-Learning (MAML)**
+
+The objective is to compare their ability to quickly adapt to new character classes using limited training samples.
+
+---
+
+## 🧠 Meta-Learning Overview
+
+Meta-learning or "learning to learn" trains a model over a distribution of tasks such that it can generalize and adapt quickly to new, unseen tasks with minimal data.
+
+### Implemented Approaches:
+
+#### 1. **Black-box Meta-Learning (BBML)**
+- Trains a recurrent or feedforward neural network end-to-end over tasks.
+- Uses task conditioning (via support sets) to produce rapid generalization without explicit gradient steps.
+- Treats the entire learning process as a black box.
+
+#### 2. **Model-Agnostic Meta-Learning (MAML)**
+- Learns an initialization of model parameters that can be quickly fine-tuned with a few gradient steps on a new task.
+- First-order or second-order gradient methods are used.
+
+---
+
+## 📂 Dataset
+
+- **Omniglot** (link: [Omniglot Dataset](https://github.com/brendenlake/omniglot))
+  - Train: `images_background` (for meta-training)
+  - Test: `images_evaluation` (for meta-testing)
+
+- Preprocessed using torchvision and split into multiple few-shot learning tasks (e.g., 5-way 1-shot).
+
+---
+
+## 🧪 Evaluation Setup
+
+- **N-way K-shot** classification setting (e.g., 5-way 1-shot).
+- Performance measured by accuracy on query samples from test tasks.
+- Evaluated both methods on unseen classes to measure generalization.
+
+---
+
+## 📈 Results Summary
+
+| Method       | Few-Shot Setup | Accuracy (Test Tasks) |
+|--------------|----------------|------------------------|
+| BBML         | 5-way 1-shot   | ~80.94%                 |
+| MAML         | 5-way 1-shot   | ~85.1%                |
+
+- MAML showed better adaptation on unseen tasks with fewer gradient steps.
+- BBML performed well but was more sensitive to architecture and hyperparameters.
+
+---
+
+## 📦 Requirements
+
+Install the dependencies:
+
+```bash
+pip install -r requirements.txt
+```
+
+Libraries used:
+
+- torch
+
+- torchvision
+
+- numpy
+
+- matplotlib
+
+- tqdm
+
+---
+
+## 📄 License
+MIT License
+
+## 🙋‍♀️ Acknowledgments
+- Based on techniques and code structure from meta-learning tutorials (e.g., MAML paper and GitHub examples).
+
+- Omniglot dataset by Brenden Lake et al.
+ 
+ ---

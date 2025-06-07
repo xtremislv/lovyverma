@@ -1,0 +1,115 @@
+---
+title: 'LMM-ConceptExplainer-VQA'
+description: 'A concept-based explainability framework applied to large multimodal models (LMMs) using the VQAv2-small dataset.'
+date: '2025-06-07'
+---
+
+# LMM-ConceptExplainer-VQA
+
+This project demonstrates a **concept-based explainability framework** for Large Multimodal Models (LMMs) using the VQAv2-small dataset. It adapts techniques inspired by the paper *"A Concept-Based Explainability Framework for Large Multimodal Models"* to provide interpretable visual question answering (VQA) outputs by analyzing how specific words in answers are represented across text and vision modalities.
+
+---
+
+## 📌 Objective
+
+To identify and explain key entities (concepts) from VQA answers using both textual and visual embeddings extracted via a Large Multimodal Model (LMM), and to assess their stability and representational utility.
+
+---
+
+## 📂 Dataset
+
+- **Name**: [VQAv2-small](https://huggingface.co/datasets/vqa)
+- Accessed via HuggingFace's `datasets` library.
+- A lightweight version of the VQAv2 dataset used for development and experimentation.
+
+---
+
+## 🧪 Methodology
+
+1. Extract answers from a subset of the VQAv2 dataset.
+2. Identify and select 5 frequently occurring target entities (e.g., “dog”, “clock”, “woman”).
+3. Use a pretrained LMM (e.g., CLIP or BLIP) to extract:
+   - **Textual embeddings** of the selected words.
+   - **Visual embeddings** from images whose answers contain those words.
+4. Visualize embeddings and compare alignment between text and image representations.
+5. Evaluate each entity’s:
+   - **Utility**: How meaningfully the entity is represented.
+   - **Stability**: How consistently the entity is represented across samples.
+
+---
+
+## 🧠 Concept-Based Explainability
+
+This project implements a concept-based explanation approach, inspired by research that seeks to understand *how multimodal models internally represent human-interpretable concepts*.
+
+### 🧩 Key Concepts
+
+#### 1. **Entity Selection**
+- Identify 5 target words/entities from the answers dataset.
+- These words become the *concepts* whose representations are analyzed.
+
+#### 2. **Representation Extraction**
+- For each entity:
+  - **Textual Representation**: From the model's text encoder (e.g., the word "dog").
+  - **Visual Representation**: From visual encoder using images where the answer includes the word.
+
+#### 3. **Concept Verification**
+- Use cosine similarity and dimensionality reduction to verify that:
+  - Images associated with the same word produce similar embeddings.
+  - These are close to the word’s text embedding.
+
+#### 4. **Utility Evaluation**
+- Check if representations are:
+  - **Distinct**: Do different concepts have clearly separated embeddings?
+  - **Cohesive**: Are instances of the same concept tightly clustered?
+
+#### 5. **Stability Check**
+- Analyze the variance in representations of the same entity across multiple samples.
+- Determine how sensitive concept embeddings are to input variations.
+
+---
+
+## 📈 Results
+
+- The notebook demonstrates:
+  - Visual and textual embedding extraction.
+  - Similarity analysis between representations.
+  - Dimensionality reduction plots.
+  - Entity-wise clustering consistency and variance metrics.
+
+---
+
+## 📦 Requirements
+
+Install the dependencies using:
+
+```bash
+pip install -r requirements.txt
+```
+
+Required packages include:
+
+- transformers
+
+- datasets
+
+- torch
+
+- matplotlib
+
+- sklearn
+
+- PIL
+
+- numpy
+
+
+## 📄 License
+MIT License
+
+## 🙋‍♀️ Acknowledgments
+- Based on methods adapted from the paper: "A Concept-Based Explainability Framework for Large Multimodal Models"
+
+- Uses the VQAv2 dataset from HuggingFace Datasets.
+
+---

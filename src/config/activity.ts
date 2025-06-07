@@ -1,0 +1,16 @@
+// activity
+export const activityHeadLine = "My Activity"
+export const activityIntro = "Snippets of Cool AI Stuff"
+
+export const tweetIds = [
+  '1894979731726180765',
+  '1895038006974898428',
+  '1930293076041286074',
+  '1931112520103661909',
+  '1930652311061205166',
+  '1931083674713554969',
+  '1931041804150870356',
+  '1929937841905381558',
+  '1930702341742944589',
+]
+
